@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <menu-config xmlns="http://jmix.io/schema/ui/menu">
 
+	<item screen="TicketReservation" caption="msg://com.sample.airtickets/menu_config.TicketReservation"
+	      insertBefore="administration" icon="font-icon:BANK"/>
 	<menu id="application" caption="msg://com.sample.airtickets/menu.application" insertBefore="administration">
 		<item screen="User.browse" caption="msg://com.sample.airtickets.screen.user/UserBrowse.caption"/>
 		<item screen="themeSettingsScreen" caption="msg://io.jmix.ui.app.themesettings/themeSettings.caption"/>
-
 	</menu>
 	<menu id="referenceData" caption="msg://com.sample.airtickets/menu_config.referenceData"
 	      insertBefore="administration">

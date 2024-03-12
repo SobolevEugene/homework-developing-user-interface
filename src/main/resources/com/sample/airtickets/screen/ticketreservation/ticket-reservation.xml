@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://jmix.io/schema/ui/window"
+        caption="msg://ticketReservation.caption">
+	<data readOnly="true">
+		<collection id="airportsDc"
+		            class="com.sample.airtickets.entity.Airport">
+			<fetchPlan extends="_base"/>
+			<loader id="airportsDl">
+				<query>
+					<![CDATA[select a from Airport a]]>
+				</query>
+			</loader>
+		</collection>
+		<collection id="flightsDc"
+		            class="com.sample.airtickets.entity.Flight">
+			<fetchPlan extends="_base">
+				<property name="fromAirport" fetchPlan="_base"/>
+				<property name="toAirport" fetchPlan="_base"/>
+				<property name="airline" fetchPlan="_base"/>
+			</fetchPlan>
+			<loader id="flightsDl">
+				<query>
+					<![CDATA[select f from Flight f]]>
+				</query>
+			</loader>
+		</collection>
+	</data>
+	<facets>
+		<dataLoadCoordinator auto="true"/>
+	</facets>
+	<layout expand="flightsTable" spacing="true">
+		<groupBox id="flightFilter"
+		          caption="msg://Filter"
+		          orientation="horizontal">
+			<entityComboBox id="airportFromFilter"
+			                caption="msg://From"
+			                optionsContainer="airportsDc"/>
+			<entityComboBox id="airportToFilter"
+			                caption="msg://To"
+			                optionsContainer="airportsDc"/>
+			<dateField id="departureDateFilter"
+			           caption="msg://DepartureDate"
+			           datatype="localDate"/>
+			<button id="searchBtn" caption="msg://Search" icon="font-icon:SEARCH"/>
+		</groupBox>
+		<progressBar id="searchProgress" width="100%" visible="false" height="AUTO"/>
+		<groupTable id="flightsTable"
+		            width="100%"
+		            dataContainer="flightsDc">
+			<columns>
+				<column id="number"/>
+				<column id="fromAirport"/>
+				<column id="toAirport"/>
+				<column id="airline"/>
+				<column id="takeOffDate"/>
+			</columns>
+			<simplePagination/>
+		</groupTable>
+
+	</layout>
+</window>
