@@ -3,6 +3,8 @@
 
 	<item screen="TicketReservation" caption="msg://com.sample.airtickets/menu_config.TicketReservation"
 	      insertBefore="administration" icon="font-icon:BANK"/>
+	<item screen="Ticket.browse" caption="msg://com.sample.airtickets.screen.ticket/ticketBrowse.menu"
+	      insertBefore="administration"/>
 	<menu id="application" caption="msg://com.sample.airtickets/menu.application" insertBefore="administration">
 		<item screen="User.browse" caption="msg://com.sample.airtickets.screen.user/UserBrowse.caption"/>
 		<item screen="themeSettingsScreen" caption="msg://io.jmix.ui.app.themesettings/themeSettings.caption"/>

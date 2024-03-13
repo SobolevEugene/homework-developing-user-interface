@@ -25,8 +25,26 @@
 			</loader>
 		</collection>
 	</data>
+	<actions>
+		<action id="inputDialogAction"/>
+	</actions>
 	<facets>
 		<dataLoadCoordinator auto="true"/>
+		<inputDialog id="reserveTicketInputDialog"
+		                  caption="Reserve ticket"
+		                  onAction="inputDialogAction">
+			<parameters>
+				<stringParameter id="nameParam"
+				                 caption="Passenger name"
+				                 required="true"/>
+				<stringParameter id="passportNumberParam"
+				                 caption="Passport number"
+				                 required="true"/>
+				<stringParameter id="telephoneParam"
+				                 caption="Telephone"
+				                 required="true"/>
+			</parameters>
+		</inputDialog>
 	</facets>
 	<layout expand="flightsTable" spacing="true">
 		<groupBox id="flightFilter"
@@ -53,9 +71,9 @@
 				<column id="toAirport"/>
 				<column id="airline"/>
 				<column id="takeOffDate"/>
+				<column id="actionsColumn" caption="msg://Actions"/>
 			</columns>
 			<simplePagination/>
 		</groupTable>
-
 	</layout>
 </window>

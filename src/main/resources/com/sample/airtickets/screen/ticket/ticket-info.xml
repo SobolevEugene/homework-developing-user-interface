@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://jmix.io/schema/ui/window"
+        caption="msg://ticketInfo.caption"
+        focusComponent="ticketForm">
+	<data>
+		<instance id="ticketDc"
+		          class="com.sample.airtickets.entity.Ticket">
+			<fetchPlan extends="_base"/>
+			<instance id="flightDc" property="flight"/>
+			<loader id="ticketDl"/>
+		</instance>
+	</data>
+	<facets>
+		<dataLoadCoordinator auto="true"/>
+		<screenSettings id="settingsFacet" auto="true"/>
+	</facets>
+	<layout spacing="true" expand="buttonsPanel">
+		<form id="ticketForm" dataContainer="ticketDc" editable="false">
+			<column width="350px">
+				<textField id="reservationIdField"
+				           property="reservationId"
+				           dataContainer="ticketDc"
+				           editable="false"/>
+				<textField id="passportNumberField"
+				           property="passportNumber"
+				           dataContainer="ticketDc"
+				           editable="false"/>
+				<textField id="passengerNameField"
+				           property="passengerName"
+				           dataContainer="ticketDc"
+				           editable="false"/>
+				<textField id="telephoneField"
+				           property="telephone"
+				           dataContainer="ticketDc"
+				           editable="false"/>
+			</column>
+		</form>
+		<form id="flightForm" dataContainer="flightDc" editable="false">
+			<column width="350px">
+				<textField id="numberField" property="number"/>
+				<textField id="airlineField" property="airline"/>
+				<textField id="fromAirportField" property="fromAirport"/>
+				<textField id="toAirportField" property="toAirport"/>
+				<textField id="takeOffDateField" property="takeOffDate"/>
+			</column>
+		</form>
+		<hbox id="buttonsPanel" spacing="true">
+			<button id="closeBtn" caption="msg://CloseAction"/>
+		</hbox>
+	</layout>
+</window>
